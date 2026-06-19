@@ -1,13 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Festival">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Festival event">
   <defs>
-    <linearGradient id="g-festival-2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#a21caf"/>
-      <stop offset="1" stop-color="#e11d48"/>
+    <linearGradient id="bg-festival-2" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#701a75"/>
+      <stop offset="0.55" stop-color="#c026d3"/>
+      <stop offset="1" stop-color="#fb7185"/>
     </linearGradient>
+    <radialGradient id="glow-festival-2" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sheen-festival-2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.28"/>
+    </linearGradient>
+    <filter id="soft-festival-2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="60"/>
+    </filter>
+    <filter id="grain-festival-2">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+    </filter>
+    <clipPath id="clip-festival-2"><rect width="800" height="600"/></clipPath>
   </defs>
-  <rect width="800" height="600" fill="url(#g-festival-2)"/>
-  <circle cx="180" cy="460" r="220" fill="#ffffff" opacity="0.10"/>
-  <circle cx="180" cy="460" r="140" fill="#ffffff" opacity="0.08"/>
-  <text x="48" y="540" font-family="'Segoe UI', system-ui, sans-serif" font-size="56" font-weight="700" fill="#ffffff" opacity="0.95">Festival</text>
-  <text x="50" y="500" font-family="'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="500" fill="#ffffff" opacity="0.7" letter-spacing="3">EVENT</text>
+
+  <g clip-path="url(#clip-festival-2)">
+    <rect width="800" height="600" fill="url(#bg-festival-2)"/>
+    <circle cx="160" cy="150" r="260" fill="url(#glow-festival-2)" filter="url(#soft-festival-2)"/>
+    <circle cx="660" cy="470" r="220" fill="url(#glow-festival-2)" filter="url(#soft-festival-2)" opacity="0.7"/>
+    <g opacity="0.9"><rect x="56" y="92" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(0 63 99)"/><rect x="193" y="303" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(47 200 310)"/><rect x="330" y="34" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(4 337 41)"/><rect x="467" y="245" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(51 474 252)"/><rect x="604" y="456" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(8 611 463)"/><rect x="741" y="187" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(55 748 194)"/><rect x="118" y="398" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(12 125 405)"/><rect x="255" y="129" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(59 262 136)"/><rect x="392" y="340" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(16 399 347)"/><rect x="529" y="71" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(63 536 78)"/><rect x="666" y="282" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(20 673 289)"/><rect x="43" y="493" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(67 50 500)"/><rect x="180" y="224" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(24 187 231)"/><rect x="317" y="435" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(71 324 442)"/><rect x="454" y="166" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(28 461 173)"/><rect x="591" y="377" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(75 598 384)"/><rect x="728" y="108" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(32 735 115)"/><rect x="105" y="319" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(79 112 326)"/><rect x="242" y="50" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(36 249 57)"/><rect x="379" y="261" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(83 386 268)"/><rect x="516" y="472" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(40 523 479)"/><rect x="653" y="203" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(87 660 210)"/><rect x="30" y="414" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(44 37 421)"/><rect x="167" y="145" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(1 174 152)"/><rect x="304" y="356" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(48 311 363)"/><rect x="441" y="87" width="14" height="14" rx="3" fill="#ffffff" opacity="0.12" transform="rotate(5 448 94)"/></g>
+    <rect width="800" height="600" fill="url(#sheen-festival-2)"/>
+    <rect width="800" height="600" filter="url(#grain-festival-2)" opacity="0.05"/>
+    <g font-family="'Instrument Sans','Segoe UI',system-ui,sans-serif">
+      <rect x="48" y="476" width="34" height="3" rx="1.5" fill="#ffffff" opacity="0.85"/>
+      <text x="92" y="481" font-size="20" font-weight="600" fill="#ffffff" opacity="0.75" letter-spacing="5">EVENT</text>
+      <text x="46" y="540" font-size="62" font-weight="700" fill="#ffffff" letter-spacing="-1">Festival</text>
+    </g>
+  </g>
 </svg>

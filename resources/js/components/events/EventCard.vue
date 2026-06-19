@@ -22,7 +22,7 @@ const place = computed(() =>
 <template>
     <Link
         :href="`/events/${event.id}`"
-        class="group relative flex flex-col overflow-hidden rounded-2xl border border-border/70 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-border hover:shadow-xl hover:shadow-primary/5"
+        class="group relative flex flex-col overflow-hidden rounded-2xl border border-border/70 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-fuchsia-500/30 hover:shadow-xl hover:shadow-fuchsia-500/10"
     >
         <div class="relative aspect-[16/10] overflow-hidden">
             <img
@@ -74,7 +74,7 @@ const place = computed(() =>
 
         <div class="flex flex-1 flex-col gap-3 p-4">
             <h3
-                class="line-clamp-2 text-base leading-snug font-semibold tracking-tight transition-colors group-hover:text-primary"
+                class="line-clamp-2 text-base leading-snug font-semibold tracking-tight transition-colors group-hover:text-fuchsia-600 dark:group-hover:text-fuchsia-400"
             >
                 {{ event.title }}
             </h3>
@@ -103,11 +103,11 @@ const place = computed(() =>
                     <template v-else>Be the first</template>
                 </span>
                 <span
-                    class="inline-flex items-center gap-1 font-medium text-primary"
+                    class="inline-flex items-center gap-1 font-medium text-fuchsia-600 dark:text-fuchsia-400"
                 >
                     Details
                     <ArrowRight
-                        class="size-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                        class="size-4 transition-transform duration-300 group-hover:translate-x-1"
                     />
                 </span>
             </div>

@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
-import { LayoutGrid } from '@lucide/vue';
+import { Globe2, Layers, LayoutGrid, Sparkles } from '@lucide/vue';
 import { useIntersectionObserver } from '@vueuse/core';
 import { onMounted, ref } from 'vue';
 import EventCard from '@/components/events/EventCard.vue';
 import EventFilters from '@/components/events/EventFilters.vue';
+import EventsTopNav from '@/components/events/EventsTopNav.vue';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useEventsFeed } from '@/composables/useEventsFeed';
 import type { FilterOptions } from '@/types/events';
@@ -31,31 +32,66 @@ onMounted(loadMore);
 <template>
     <Head title="Events · Gallery" />
 
+    <EventsTopNav />
+
     <div
         class="relative isolate mx-auto flex w-full max-w-7xl flex-col gap-6 p-4 md:p-6"
     >
-        <div
-            class="pointer-events-none absolute -top-20 -right-10 -z-10 size-72 rounded-full bg-primary/10 blur-3xl"
-        />
-        <header class="flex flex-col items-start gap-3">
+        <header
+            class="relative isolate overflow-hidden rounded-3xl border border-border/60 bg-gradient-to-br from-card via-card to-muted/50 p-6 shadow-sm md:p-9"
+        >
+            <div
+                class="pointer-events-none absolute -top-24 -right-16 -z-10 size-72 rounded-full bg-fuchsia-500/15 blur-3xl"
+            />
+            <div
+                class="pointer-events-none absolute -bottom-24 -left-16 -z-10 size-72 rounded-full bg-violet-500/15 blur-3xl"
+            />
             <span
-                class="inline-flex items-center gap-1.5 rounded-full border bg-card px-3 py-1 text-xs font-medium text-primary shadow-sm"
+                class="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-background/60 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur"
             >
-                <LayoutGrid class="size-3.5" /> Gallery
+                <Sparkles class="size-3.5 text-fuchsia-500" /> Curated worldwide
             </span>
-            <h1 class="text-4xl font-bold tracking-tight text-balance">
-                Discover events
+            <h1
+                class="mt-4 max-w-2xl text-4xl font-bold tracking-tight text-balance md:text-5xl"
+            >
+                Discover events worth
+                <span
+                    class="bg-gradient-to-r from-violet-600 via-fuchsia-600 to-rose-500 bg-clip-text text-transparent"
+                    >showing up</span
+                >
+                for
             </h1>
-            <p class="max-w-xl text-muted-foreground">
+            <p class="mt-3 max-w-xl text-muted-foreground">
                 {{
                     total !== null
                         ? `${total.toLocaleString()} events match your filters — hand-picked happenings around the world.`
                         : 'Browse upcoming events around the world.'
                 }}
             </p>
+            <div class="mt-5 flex flex-wrap gap-2">
+                <span
+                    v-if="total !== null"
+                    class="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-background/60 px-3 py-1.5 text-sm font-medium shadow-sm backdrop-blur"
+                >
+                    <LayoutGrid class="size-4 text-fuchsia-500" />
+                    {{ total.toLocaleString() }} events
+                </span>
+                <span
+                    class="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-background/60 px-3 py-1.5 text-sm font-medium shadow-sm backdrop-blur"
+                >
+                    <Globe2 class="size-4 text-violet-500" />
+                    {{ filterOptions.cities.length }} cities
+                </span>
+                <span
+                    class="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-background/60 px-3 py-1.5 text-sm font-medium shadow-sm backdrop-blur"
+                >
+                    <Layers class="size-4 text-rose-500" />
+                    {{ filterOptions.types.length }} categories
+                </span>
+            </div>
         </header>
 
-        <div class="sticky top-2 z-10">
+        <div class="sticky top-[4.5rem] z-10">
             <EventFilters
                 v-model:filters="filters"
                 :options="filterOptions"

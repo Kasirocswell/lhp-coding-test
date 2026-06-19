@@ -1,13 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Sports">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Sports event">
   <defs>
-    <linearGradient id="g-sports-1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#059669"/>
-      <stop offset="1" stop-color="#65a30d"/>
+    <linearGradient id="bg-sports-1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14532d"/>
+      <stop offset="0.55" stop-color="#059669"/>
+      <stop offset="1" stop-color="#84cc16"/>
     </linearGradient>
+    <radialGradient id="glow-sports-1" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sheen-sports-1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.28"/>
+    </linearGradient>
+    <filter id="soft-sports-1" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="60"/>
+    </filter>
+    <filter id="grain-sports-1">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+    </filter>
+    <clipPath id="clip-sports-1"><rect width="800" height="600"/></clipPath>
   </defs>
-  <rect width="800" height="600" fill="url(#g-sports-1)"/>
-  <circle cx="620" cy="140" r="220" fill="#ffffff" opacity="0.10"/>
-  <circle cx="620" cy="140" r="140" fill="#ffffff" opacity="0.08"/>
-  <text x="48" y="540" font-family="'Segoe UI', system-ui, sans-serif" font-size="56" font-weight="700" fill="#ffffff" opacity="0.95">Sports</text>
-  <text x="50" y="500" font-family="'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="500" fill="#ffffff" opacity="0.7" letter-spacing="3">EVENT</text>
+
+  <g clip-path="url(#clip-sports-1)">
+    <rect width="800" height="600" fill="url(#bg-sports-1)"/>
+    <circle cx="640" cy="130" r="260" fill="url(#glow-sports-1)" filter="url(#soft-sports-1)"/>
+    <circle cx="120" cy="520" r="220" fill="url(#glow-sports-1)" filter="url(#soft-sports-1)" opacity="0.7"/>
+    <g opacity="0.9"><line x1="400" y1="300" x2="1100" y2="300" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.08"/><line x1="400" y1="300" x2="1006" y2="650" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.08"/><line x1="400" y1="300" x2="750" y2="906" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.08"/><line x1="400" y1="300" x2="400" y2="1000" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.08"/><line x1="400" y1="300" x2="50" y2="906" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.08"/><line x1="400" y1="300" x2="-206" y2="650" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.08"/><line x1="400" y1="300" x2="-300" y2="300" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.08"/><line x1="400" y1="300" x2="-206" y2="-50" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.08"/><line x1="400" y1="300" x2="50" y2="-306" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.08"/><line x1="400" y1="300" x2="400" y2="-400" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.08"/><line x1="400" y1="300" x2="750" y2="-306" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.08"/><line x1="400" y1="300" x2="1006" y2="-50" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.08"/></g>
+    <rect width="800" height="600" fill="url(#sheen-sports-1)"/>
+    <rect width="800" height="600" filter="url(#grain-sports-1)" opacity="0.05"/>
+    <g font-family="'Instrument Sans','Segoe UI',system-ui,sans-serif">
+      <rect x="48" y="476" width="34" height="3" rx="1.5" fill="#ffffff" opacity="0.85"/>
+      <text x="92" y="481" font-size="20" font-weight="600" fill="#ffffff" opacity="0.75" letter-spacing="5">EVENT</text>
+      <text x="46" y="540" font-size="62" font-weight="700" fill="#ffffff" letter-spacing="-1">Sports</text>
+    </g>
+  </g>
 </svg>

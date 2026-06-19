@@ -1,13 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Concert">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Concert event">
   <defs>
-    <linearGradient id="g-concert-3" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#8b5cf6"/>
-      <stop offset="1" stop-color="#f43f5e"/>
+    <linearGradient id="bg-concert-3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4c1d95"/>
+      <stop offset="0.55" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#db2777"/>
     </linearGradient>
+    <radialGradient id="glow-concert-3" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sheen-concert-3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.28"/>
+    </linearGradient>
+    <filter id="soft-concert-3" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="60"/>
+    </filter>
+    <filter id="grain-concert-3">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+    </filter>
+    <clipPath id="clip-concert-3"><rect width="800" height="600"/></clipPath>
   </defs>
-  <rect width="800" height="600" fill="url(#g-concert-3)"/>
-  <circle cx="400" cy="300" r="220" fill="#ffffff" opacity="0.10"/>
-  <circle cx="400" cy="300" r="140" fill="#ffffff" opacity="0.08"/>
-  <text x="48" y="540" font-family="'Segoe UI', system-ui, sans-serif" font-size="56" font-weight="700" fill="#ffffff" opacity="0.95">Concert</text>
-  <text x="50" y="500" font-family="'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="500" fill="#ffffff" opacity="0.7" letter-spacing="3">EVENT</text>
+
+  <g clip-path="url(#clip-concert-3)">
+    <rect width="800" height="600" fill="url(#bg-concert-3)"/>
+    <circle cx="400" cy="90" r="260" fill="url(#glow-concert-3)" filter="url(#soft-concert-3)"/>
+    <circle cx="400" cy="560" r="220" fill="url(#glow-concert-3)" filter="url(#soft-concert-3)" opacity="0.7"/>
+    <g opacity="0.9"><path d="M-20 192 Q 180 142 400 192 T 820 192" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.10"/><path d="M-20 282 Q 180 232 400 282 T 820 282" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.12"/><path d="M-20 372 Q 180 322 400 372 T 820 372" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.14"/><path d="M-20 462 Q 180 412 400 462 T 820 462" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.16"/><path d="M-20 552 Q 180 502 400 552 T 820 552" stroke="#ffffff" fill="none" stroke-width="2" opacity="0.18"/></g>
+    <rect width="800" height="600" fill="url(#sheen-concert-3)"/>
+    <rect width="800" height="600" filter="url(#grain-concert-3)" opacity="0.05"/>
+    <g font-family="'Instrument Sans','Segoe UI',system-ui,sans-serif">
+      <rect x="48" y="476" width="34" height="3" rx="1.5" fill="#ffffff" opacity="0.85"/>
+      <text x="92" y="481" font-size="20" font-weight="600" fill="#ffffff" opacity="0.75" letter-spacing="5">EVENT</text>
+      <text x="46" y="540" font-size="62" font-weight="700" fill="#ffffff" letter-spacing="-1">Concert</text>
+    </g>
+  </g>
 </svg>

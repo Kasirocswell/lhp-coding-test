@@ -10,6 +10,7 @@ import {
     Users,
 } from '@lucide/vue';
 import { computed, ref } from 'vue';
+import EventsTopNav from '@/components/events/EventsTopNav.vue';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -70,6 +71,8 @@ function initials(name: string): string {
 
 <template>
     <Head :title="event.title" />
+
+    <EventsTopNav />
 
     <div class="mx-auto flex w-full max-w-5xl flex-col gap-6 p-4 md:p-6">
         <Link

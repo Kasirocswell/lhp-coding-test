@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { Head, Link } from '@inertiajs/vue3';
-import { CalendarRange, MapPin, Users } from '@lucide/vue';
+import { Clock3, MapPin, Users } from '@lucide/vue';
 import { useIntersectionObserver } from '@vueuse/core';
 import { computed, onMounted, ref } from 'vue';
 import EventFilters from '@/components/events/EventFilters.vue';
+import EventsTopNav from '@/components/events/EventsTopNav.vue';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useEventsFeed } from '@/composables/useEventsFeed';
@@ -66,22 +67,36 @@ onMounted(loadMore);
 <template>
     <Head title="Events · Timeline" />
 
+    <EventsTopNav />
+
     <div
         class="relative isolate mx-auto flex w-full max-w-4xl flex-col gap-6 p-4 md:p-6"
     >
-        <div
-            class="pointer-events-none absolute -top-20 -left-10 -z-10 size-72 rounded-full bg-primary/10 blur-3xl"
-        />
-        <header class="flex flex-col items-start gap-3">
+        <header
+            class="relative isolate overflow-hidden rounded-3xl border border-border/60 bg-gradient-to-br from-card via-card to-muted/50 p-6 shadow-sm md:p-9"
+        >
+            <div
+                class="pointer-events-none absolute -top-24 -left-16 -z-10 size-72 rounded-full bg-violet-500/15 blur-3xl"
+            />
+            <div
+                class="pointer-events-none absolute -right-16 -bottom-24 -z-10 size-72 rounded-full bg-sky-500/15 blur-3xl"
+            />
             <span
-                class="inline-flex items-center gap-1.5 rounded-full border bg-card px-3 py-1 text-xs font-medium text-primary shadow-sm"
+                class="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-background/60 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur"
             >
-                <CalendarRange class="size-3.5" /> Timeline
+                <Clock3 class="size-3.5 text-violet-500" /> Day by day
             </span>
-            <h1 class="text-4xl font-bold tracking-tight text-balance">
-                What's coming up
+            <h1
+                class="mt-4 max-w-2xl text-4xl font-bold tracking-tight text-balance md:text-5xl"
+            >
+                What's
+                <span
+                    class="bg-gradient-to-r from-violet-600 via-indigo-600 to-sky-500 bg-clip-text text-transparent"
+                    >coming up</span
+                >
+                next
             </h1>
-            <p class="max-w-xl text-muted-foreground">
+            <p class="mt-3 max-w-xl text-muted-foreground">
                 {{
                     total !== null
                         ? `${total.toLocaleString()} events on the agenda, laid out day by day.`
@@ -90,7 +105,7 @@ onMounted(loadMore);
             </p>
         </header>
 
-        <div class="sticky top-2 z-20">
+        <div class="sticky top-[4.5rem] z-20">
             <EventFilters
                 v-model:filters="filters"
                 :options="filterOptions"
@@ -100,10 +115,13 @@ onMounted(loadMore);
 
         <div v-if="groups.length" class="flex flex-col gap-8">
             <section v-for="group in groups" :key="group.key">
-                <div class="sticky top-24 z-10 mb-4 flex items-center gap-3">
+                <div class="sticky top-[8.5rem] z-10 mb-4 flex items-center gap-3">
                     <h2
-                        class="rounded-full border bg-card/90 px-4 py-1.5 text-sm font-semibold shadow-sm ring-1 ring-black/[0.02] backdrop-blur"
+                        class="inline-flex items-center gap-2 rounded-full border bg-card/90 px-4 py-1.5 text-sm font-semibold shadow-sm ring-1 ring-black/[0.02] backdrop-blur"
                     >
+                        <span
+                            class="size-2 rounded-full bg-gradient-to-br from-violet-500 to-sky-500"
+                        />
                         {{ group.label }}
                     </h2>
                     <span class="text-xs font-medium text-muted-foreground"
@@ -113,14 +131,16 @@ onMounted(loadMore);
                     >
                 </div>
 
-                <ol class="relative ml-3 border-l border-border pl-6">
+                <ol
+                    class="relative ml-3 border-l border-border bg-gradient-to-b from-violet-500/40 via-border to-transparent bg-[length:2px_100%] bg-no-repeat pl-6"
+                >
                     <li
                         v-for="event in group.events"
                         :key="event.id"
                         class="group relative mb-4 animate-in fill-mode-both fade-in slide-in-from-left-3"
                     >
                         <span
-                            class="absolute top-5 -left-[31px] size-3.5 rounded-full border-2 border-background bg-primary ring-2 ring-primary/20 transition group-hover:scale-125"
+                            class="absolute top-5 -left-[31px] size-3.5 rounded-full border-2 border-background bg-gradient-to-br from-violet-500 to-sky-500 ring-2 ring-violet-500/20 transition duration-300 group-hover:scale-125 group-hover:ring-4"
                         />
 
                         <Link
